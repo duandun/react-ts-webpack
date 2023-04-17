@@ -1,0 +1,60 @@
+{
+    "settings": {
+        "react": {
+            "version": "detect"
+        }
+    },
+    "env": {
+        "browser": true,
+        "es2021": true
+    },
+    "extends": [
+        "eslint:recommended",
+        "plugin:react/recommended",
+        "plugin:@typescript-eslint/recommended"
+    ],
+    "overrides": [
+    ],
+    "parser": "@typescript-eslint/parser",
+    "parserOptions": {
+        "ecmaVersion": "latest",
+        "sourceType": "module",
+        "ecmaFeatures": {
+            "jsx": true
+        }
+    },
+    "plugins": [
+        "react",
+        "@typescript-eslint"
+    ],
+    "rules": {
+        "indent": [
+            "error",
+            4
+        ],
+        "linebreak-style": [
+            "error",
+            "unix"
+        ],
+        "object-curly-spacing": ["error","always"],
+        "@typescript-eslint/explicit-module-boundary-types": 0,
+        "@typescript-eslint/no-var-requires": 0,
+        "@typescript-eslint/no-explicit-any": 0,
+        "array-bracket-spacing": [2, "never"],// 是否允许非空数组里面有多余的空格
+        "comma-spacing": [2, {"before": false, "after": true}], // 逗号前禁止空格，逗号后要有空格
+        "func-call-spacing": 2, // 要求或禁止在函数标识符和其调用之间有空格
+        "key-spacing": [2, { "beforeColon": false, "afterColon": true }], // 对象字面量中冒号的前后空格
+        // if for while 后都有一个空格
+        "keyword-spacing": [2, { "overrides": { "if": { "after": true }, "for": { "after": true }, "while": { "after": true } } }],
+        "typescript/no-var-requires": 0,
+        "no-var-requires": 0,
+        "no-multi-spaces": 2, // 不能有多余的空格
+        // 空行最多不能超过1行,在文件结尾处强制执行最大数量的连续空行为1
+        "no-multiple-empty-lines": ["error", { "max": 1, "maxEOF": 1 }],
+        "prefer-const": 0, // 不校验变量是否被重新分配
+        "quotes": [2, "single", "avoid-escape"], // 强制使用一致的反勾号、双引号或单引号
+        "semi": [2, "always"], // 代码句尾不能有分号
+        "semi-spacing": [2, {"before": false, "after": true}], // 分号前后空格
+        "space-infix-ops": ["error", {"int32Hint": false}] // 操作符周围都要有空格
+    }
+}
