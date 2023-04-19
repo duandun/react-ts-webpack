@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import TestHooks from './TestHooks';
+import CounterTest from './CounterTest';
 
 const App = () => {
     const [id, setId] = useState('1');
@@ -10,7 +11,10 @@ const App = () => {
         }, 2 * 1000);
     }, []);
     return (
-        <div><TestHooks id={id} />啦嗯嗯啦</div>
+        <div>
+            <TestHooks id={id} />
+            <CounterTest />
+        </div>
     );
 };
 

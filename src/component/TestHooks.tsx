@@ -11,7 +11,7 @@ const TestHooks: React.FC<CallbackProps> = (props) => {
         console.log(evt);
     }, [id]);
     return (
-        <div onClick={handleSubmit} style={{ background: 'red' }}>
+        <div onClick={handleSubmit} style={{ background: 'orange' }}>
             按钮
         </div>
     );
