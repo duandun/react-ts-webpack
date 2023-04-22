@@ -31,8 +31,8 @@ export const counterSlice = createSlice({
         decrement: (state) => {
             state.value -= 1;
         },
-        incrementByAmount: (state, action: PayloadAction<number>) => {
-            state.value += action.payload;
+        incrementByAmount: (state, action: PayloadAction<CounterState>) => {
+            state.value += action.payload.value;
         },
     },
 
@@ -59,7 +59,7 @@ export const incrementIfOdd = (amount: number): AppThunk =>
     (dispatch, getState) => {
         const currentValue = selectCount(getState());
         if (currentValue % 2 === 1) {
-            dispatch(incrementByAmount(amount));
+            dispatch(incrementByAmount({ value: amount, status: 'idle' }));
         }
     };
 

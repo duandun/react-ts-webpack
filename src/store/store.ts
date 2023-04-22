@@ -1,10 +1,12 @@
 import { configureStore, ThunkAction, Action } from '@reduxjs/toolkit';
 import { useDispatch, useSelector, TypedUseSelectorHook } from 'react-redux';
 import counterReducer from './features/counterSlice';
+import componentReducer from './features/componentSlice';
 
 const store = configureStore({
     reducer: {
         counter: counterReducer,
+        cmp: componentReducer,
     },
     devTools: process.env.NODE_ENV === 'development'
 });

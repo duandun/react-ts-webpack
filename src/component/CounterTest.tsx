@@ -2,7 +2,6 @@
 import React from 'react';
 import { useAppSelector, useAppDispatch } from '../store/store';
 import { increment, decrement, incrementAsync, selectCount } from '../store/features/counterSlice';
-import './counter.test.less';
 
 const CounterTest: React.FC = () => {
     const dispatch = useAppDispatch();
