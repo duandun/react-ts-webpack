@@ -8,11 +8,6 @@ module.exports = {
   entry: {
     index: './src/index.tsx',
   },
-  output: {
-    filename: '[name].js',
-    path: path.resolve(__dirname, '../dist'),
-    clean: true
-  },
   resolve: {
       extensions: ['.js', '.jsx', '.json', '.tsx', '.ts'],
       alias: {
@@ -45,6 +40,34 @@ module.exports = {
             ],
           },
         },
+      },
+      {
+        test: /\.(css|less)$/,
+        use: [
+          {
+            loader: 'style-loader'
+          },
+          {
+            loader: 'css-loader',
+            options: {
+              importLoaders: 1
+            }
+          },
+          {
+            loader: 'postcss-loader',
+            options: {
+              postcssOptions: {
+                plugins: () => {
+                  require('postcss-flexbugs-fixes'),
+                  autoprefixer({
+                    flexbox: 'no-2009'
+                  })
+                }
+              }
+            }
+          }
+        ],
+        sideEffects: true,
       },
       {
         test: /\.(ts|tsx)$/,

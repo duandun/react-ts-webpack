@@ -6,12 +6,17 @@ const { CleanWebpackPlugin } = require('clean-webpack-plugin');
 
 module.exports = merge(common, {
   mode: 'development',
+  output: {
+    filename: 'static/js/bundle.js',
+    path: path.resolve(__dirname, '../dist'),
+  },
   devServer: {
     static: path.join(__dirname, 'dist'),
     port: 8020,
     compress: true,
     open: true
   },
+  devtool: 'cheap-module-source-map',
   plugins: [
     new CleanWebpackPlugin(),
     new HtmlWebpackPlugin({

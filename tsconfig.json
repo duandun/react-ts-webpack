@@ -19,6 +19,9 @@
         "resolveJsonModule": true,
         "isolatedModules": true,
         "jsx": "react",
+        "paths": {
+            "@/*": ["./src/*"],
+        }
     },
     "include": ["src"],
     "exclude": ["dist", "config", "build", "node_modules"]

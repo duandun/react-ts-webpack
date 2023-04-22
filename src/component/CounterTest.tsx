@@ -2,6 +2,7 @@
 import React from 'react';
 import { useAppSelector, useAppDispatch } from '../store/store';
 import { increment, decrement, incrementAsync, selectCount } from '../store/features/counterSlice';
+import './counter.test.less';
 
 const CounterTest: React.FC = () => {
     const dispatch = useAppDispatch();
@@ -16,7 +17,7 @@ const CounterTest: React.FC = () => {
         dispatch(incrementAsync(7));
     }
     return (
-        <div style={{ 'display': 'flex', 'alignItems': 'center', 'justifyContent': 'center', width: '200px', height: '200px', 'marginTop': '100px', 'backgroundColor': 'red' }}>
+        <div className='counterContainer'>
             <p>{count}</p>
             <button onClick={handleClickAdd}>加</button>
             <button onClick={handleClickMinus}>减</button>
