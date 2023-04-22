@@ -1,5 +1,5 @@
 import { configureStore, ThunkAction, Action } from '@reduxjs/toolkit';
-import { useDispatch, useSelector, TypedUseSelectorHook } from 'react-redux';
+import { useDispatch, useSelector, TypedUseSelectorHook, connect, ConnectedProps } from 'react-redux';
 import counterReducer from './features/counterSlice';
 import componentReducer from './features/componentSlice';
 
@@ -21,5 +21,9 @@ export type AppThunk<ReturnType = void> = ThunkAction<
 >;
 export const useAppDispatch = () => useDispatch<AppDispatch>();
 export const useAppSelector: TypedUseSelectorHook<RootState> = useSelector;
+
+export const connector = connect((state: RootState) => state);
+
+export type PropsFromRedux = ConnectedProps<typeof connector>;
 
 export default store;

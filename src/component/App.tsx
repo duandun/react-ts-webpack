@@ -2,13 +2,13 @@ import React, { useEffect, useState } from 'react';
 import 'antd/dist/reset.css';
 import { Button } from 'antd';
 import './app.less';
-import { useAppDispatch, useAppSelector } from '../store/store';
+import { useAppDispatch, PropsFromRedux } from '../store/store';
 import { createCustomComponent } from '../store/features/componentSlice';
 
-const App: React.FC = () => {
+const App: React.FC<PropsFromRedux> = (props) => {
     const [Cmp, setCmp] = useState<React.FC>();
     const dispatch = useAppDispatch();
-    const { cmpName } = useAppSelector((state) => state.cmp);
+    const { cmpName } = props.cmp;
     useEffect(() => {
         const loadData = async (name: string) => {
             const data = name ? await import(`./${name}`) : { default: null };
