@@ -28,7 +28,7 @@ const App: React.FC<PropsFromRedux> = (props) => {
                 {Cmp && <Cmp />}
             </div>
             <div className="app_button_container">
-                <Button type="primary" size="large" onClick={() => handleExecuteClick('CounterTest')}>运行</Button>
+                <Button type="primary" size="large" onClick={() => handleExecuteClick('ReplaceValueInTree')}>运行</Button>
             </div>
         </div>
     );
