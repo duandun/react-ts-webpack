@@ -4,6 +4,7 @@ import { Button } from 'antd';
 import './app.less';
 import { useAppDispatch, PropsFromRedux } from '../store/store';
 import { createCustomComponent } from '../store/features/componentSlice';
+import AsyncTimer from './AsyncTimer.js';
 
 const App: React.FC<PropsFromRedux> = (props) => {
     const [Cmp, setCmp] = useState<React.FC>();
@@ -21,6 +22,10 @@ const App: React.FC<PropsFromRedux> = (props) => {
             cmpName: name
         }));
     }
+    function handleAsyncTimer() {
+        AsyncTimer.save(1)(2)(5);
+        AsyncTimer.recurseFn(AsyncTimer.arr);
+    }
     return (
         <div className="app_container">
             <div className="app_title_name">{cmpName}</div>
@@ -28,7 +33,8 @@ const App: React.FC<PropsFromRedux> = (props) => {
                 {Cmp && <Cmp />}
             </div>
             <div className="app_button_container">
-                <Button type="primary" size="large" onClick={() => handleExecuteClick('ReplaceValueInTree')}>运行</Button>
+                <Button type="primary" size="large" onClick={() => handleExecuteClick('SplitArray659')}>运行</Button>
+                <Button type="primary" size="large" onClick={() => handleAsyncTimer()}>运行2</Button>
             </div>
         </div>
     );
